@@ -14,7 +14,7 @@ public class Account {
         Scanner loginput = new Scanner(System.in);
         String login = loginput.next();
 
-        if (login == "login") {
+        if ( login.equals("login") ) {
             try( Connection connection = DriverManager.getConnection(databaseURL) ) {
                 //enter username
                 System.out.println("Username:");
@@ -22,13 +22,14 @@ public class Account {
                 String UserName = uinput.next();
 
                 //enter password
-                System.out.println("Choose a password");
+                System.out.println("Password:");
                 Scanner pinput = new Scanner(System.in);
                 String Password = pinput.next();
 
                 //search username
                 String sql = "SELECT ID, FirstName, LastName, UserName, Password FROM Account " +
-                        "WHERE UserName = ' AND Password = ' " + UserName + "' " + Password + "' ";
+                        "WHERE UserName = ' " + UserName + " ' " + " AND Password = ' "  + Password + " ' ";
+                System.out.println(sql);
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
                 System.out.printf ( "%d",  preparedStatement );
@@ -57,7 +58,8 @@ public class Account {
                 ex.printStackTrace();
             } //catch end
 
-        } else if (login == "create") {
+        } else if ( login.equals("create") )
+        {
 
             //set name
             System.out.println("Please enter your first name");
@@ -79,7 +81,7 @@ public class Account {
 
 
             try( Connection connection = DriverManager.getConnection(databaseURL) ) {
-                String sql = "INSERT INTO Account (FirstName, LastName, UserName, Password) VALUES (?, ?)";
+                String sql = "INSERT INTO Account (FirstName, LastName, UserName, Password) VALUES (?, ?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, FirstName);
                 preparedStatement.setString(2, LastName);
