@@ -34,6 +34,8 @@ public class Account {
                 System.out.printf ( "%d",  preparedStatement );
 
 
+
+
                 //Welcome FirstName LastName
                 //"username or password not found"
                 if ( preparedStatement == null ) {
@@ -43,9 +45,11 @@ public class Account {
 
                     System.out.printf("Welcome %d %d");
 
+                    //move on to next code (Mukuwa's Database)
                 }
 
-                
+                preparedStatement.close();
+                connection.close();
 
                 connection.close();
             } //try end
