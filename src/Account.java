@@ -32,7 +32,7 @@ public class Account {
                 System.out.println(sql);
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-                System.out.printf ( "%d",  preparedStatement );
+                //System.out.printf ( "%d",  preparedStatement );
 
 
 
@@ -44,9 +44,11 @@ public class Account {
                 }
                 else {
 
-                    System.out.printf("Welcome %d %d");
+                    System.out.printf("Welcome!");
 
                     //move on to next code (Mukuwa's Database)
+
+
                 }
 
                 preparedStatement.close();
