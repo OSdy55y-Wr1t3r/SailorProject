@@ -38,7 +38,7 @@ import java.util.Scanner;
                     //search username
                     String sql = "SELECT ID, FirstName, LastName, UserName, Password FROM Account " +
                             "WHERE UserName = ' " + UserName + " ' " + " AND Password = ' "  + Password + " ' ";
-                    System.out.println(sql);
+
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
                     //System.out.printf ( "%d",  preparedStatement );
